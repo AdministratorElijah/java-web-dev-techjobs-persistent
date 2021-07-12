@@ -7,7 +7,7 @@ name VARCHAR(),
 )
 
 ## Part 2: Test it with SQL
-SELECT *
+SELECT name
 FROM employer
 WHERE location >= "St. Louis City";
 
@@ -15,6 +15,7 @@ WHERE location >= "St. Louis City";
 DROP TABLE job;
 
 ## Part 4: Test it with SQL
-SELECT skill
-FROM job
-WHERE skills.job IS NOT NULL
+SELECT name, description
+FROM skill
+LEFT JOIN job_skills on skill.id = job_skills.skills_id
+WHERE jobs_id IS NOT null 
